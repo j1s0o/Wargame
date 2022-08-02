@@ -76,3 +76,6 @@ if "Congratulations, you solved the lab!" in r.text:
 _This lab contains a_ [_DOM-based cross-site scripting_](https://portswigger.net/web-security/cross-site-scripting/dom-based) _vulnerability on the home page. It uses jQuery's `$()` selector function to auto-scroll to a given post, whose title is passed via the `location.hash` property._
 
 _To solve the lab, deliver an exploit to the victim that calls the `print()` function in their browser._
+
+![](<.gitbook/assets/image (2).png>)
+

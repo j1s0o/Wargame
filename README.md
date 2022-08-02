@@ -94,7 +94,7 @@ Payload: `no=1 or id= 0x61646D696E`
 
 Đầu tiên ta sẽ dùng burp kiểm tra độ dài của pass `?pw=' or 1=1 and length(pw)=?`&#x20;
 
-![](<.gitbook/assets/image (1).png>)
+![](<.gitbook/assets/image (1) (1).png>)
 
 Ta thấy lúc này pw có độ dài là 9. Viết payload
 
@@ -460,7 +460,7 @@ Chúng ta có một số kí tự để thay thế khoảng trắng như: `%20`-
 ?>hp
 ```
 
-![](.gitbook/assets/image.png)
+![](<.gitbook/assets/image (1).png>)
 
 Bài này sẽ bypass like dùng `a%` brute force password
 
