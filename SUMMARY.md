@@ -3,4 +3,3 @@
 * [LORD OF SQL](README.md)
 * [README](readme.md)
 * [Hack The Box](hack-the-box.md)
-* [Portswigger](portswigger.md)
