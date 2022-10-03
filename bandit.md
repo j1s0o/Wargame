@@ -52,7 +52,7 @@ password : bandit0
 
 Đầu tiên ta sẽ vào thư mục inhere `cd inhere` sau đó dùng lệnh file để kiểm tra tất cả file => `file ./-f*`
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (2).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ thất -file07 là 1 file ASCII text nên ta sẽ đọc file đó
 
@@ -74,14 +74,99 @@ find / -user bandit7 -group bandit6 -size 33c&#x20;
 
 Nhưng ở đây ta sẽ bị rất nhiều Permission denied&#x20;
 
-<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nên ta sẽ thêm vào câu lệnh 2>/dev/null ([source](https://www.cyberciti.biz/faq/bash-find-exclude-all-permission-denied-messages/))
 
 \=> find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 
-<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S**
 
 ## Level 7
+
+The password for the next level is stored in the file **data.txt** next to the word **millionth**
+
+Đề bảo password nằm kế với từ millionth thì ta chỉ việc lấy password bằng câu lệnh&#x20;
+
+\=> `cat data.txt | grep millionth`&#x20;
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+**password : TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
+
+## **Level 8**
+
+Bài này đề nói password chỉ xuất hiện 1 lần nên khi ta dùng lệnh `sort data.txt` sẽ thấy rất nhiều password lặp laị như sau
+
+<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+Nên lúc này để tìm được password thì chỉ cần tìm 1 chuỗi xuất hiện 1 lần bằng câu lệnh&#x20;
+
+\=> `sort data.txt  |  uniq -u` ( -u chỉ hiển thị các dòng không lặp lại [source](https://vi.wikipedia.org/wiki/Uniq\_\(Unix\)) )
+
+<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+**password : EN632PlfYiZbn3PhVK3XOGSlNInNE00t**
+
+## level 9
+
+The password for the next level is stored in the file **data.txt** in one of the few human-readable strings, preceded by several ‘=’ characters.
+
+Khi đọc file data.txt thì ta sẽ thấy đây là 1 file không thể đọc . Nên ta sẽ thử dùng câu lệnh strings mà trên đề đã nói password có 1 vài dấu = .Nên ở trường hợp này ta có:
+
+\=> `strings data.txt | grep ==`&#x20;
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+**password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
+
+## level 10
+
+The password for the next level is stored in the file **data.txt**, which contains base64 encoded data
+
+Bài này thì chỉ cần decode base64 là có password&#x20;
+
+\=> `cat data.txt | base64 --decode`
+
+<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+**password : 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM**
+
+## level 11
+
+The password for the next level is stored in the file **data.txt**, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+Bài này cũng chỉ đơn giản là decode ROT13 để có password&#x20;
+
+\=> `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
+
+<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+**password : JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv**
+
+## level 12
+
+The password for the next level is stored in the file **data.txt**, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work using mkdir. For example: mkdir /tmp/myname123. Then copy the datafile using cp, and rename it using mv (read the manpages!)
+
+Đầu tiên ta sẽ tạo 1 thư mục để xử lý trên nó sau đó hexdump nó thành 1 file như hình
+
+<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+Việc bây giờ là format lại file cho đúng định dạng có thể đọc được
+
+Ta sẽ có quy tác như sau :&#x20;
+
+\+ Nếu file đó là gzip thì ta cần chuyển nó thành file với đuôi gz và sử dụng câu lệnh `gunzip` để giải nén
+
+\+ Nếu  bzip2 thì chỉ cần dùng câu lệnh `bzip2 -d`&#x20;
+
+\+ Nêu là POSIX thì dùng câu lệnh `tar xvf`&#x20;
+
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+**password : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw**
+
+## level 13
+
