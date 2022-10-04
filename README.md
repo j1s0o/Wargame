@@ -764,7 +764,7 @@ payload:  id=\\\&pw= union select char(92),0x20756e696f6e2073656c656374203078363
 
 char(92) = \ , hex = union select 0x61646d696e-- -
 
-<figure><img src=".gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Red\_Dragon(numeric)
 

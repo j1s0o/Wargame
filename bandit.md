@@ -8,7 +8,7 @@ username : bandit0
 
 password : bandit0
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
@@ -32,7 +32,7 @@ password : bandit0
 
 \=> `cat spaces\ in\ this\ filename`
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG**
 
@@ -92,7 +92,7 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 \=> `cat data.txt | grep millionth`&#x20;
 
-<figure><img src=".gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 **password : TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
 
@@ -118,7 +118,7 @@ Khi đọc file data.txt thì ta sẽ thấy đây là 1 file không thể đọ
 
 \=> `strings data.txt | grep ==`&#x20;
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 **password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
 
@@ -164,7 +164,7 @@ Ta sẽ có quy tác như sau :&#x20;
 
 \+ Nêu là POSIX thì dùng câu lệnh `tar xvf`&#x20;
 
-<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw**
 
@@ -176,9 +176,9 @@ The password for the next level is stored in **/etc/bandit\_pass/bandit14 and ca
 
 `ssh bandit14@localhost -i sshkey.private -p 2220`
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 password bandit14 đề cho nằm trong /etc/bandit\_pass/bandit14
 
@@ -192,7 +192,7 @@ nc 127.0.0.1 30000
 
 password là pass level14
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 **password : jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt**
 
@@ -206,11 +206,11 @@ Bài này sử dụng openssl để connect vào localhost port 30001
 
 Ta thực hiện như sau ([source here](https://www.mkssoftware.com/docs/man1/openssl\_s\_client.1.asp))
 
-openssl s\_client -connect localhost:30001
+`openssl s_client -connect localhost:30001`
 
 password là pass level trước
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : JQttfApK4SeyHwDlI9SXGR50qclOAil1**
 
@@ -218,3 +218,28 @@ password là pass level trước
 
 The credentials for the next level can be retrieved by submitting the password of the current level to **a port on localhost in the range 31000 to 32000**. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
 
+Đầu tiên ta sử dụng lệnh nmap để scan các port từ 31000-32000 và thấy port 31709 có thể khai thác được : `nmap -sV -p 31000-32000 localhost`
+
+<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+sử dụng `openssl s_client -connect localhost:31790` với password của level trước
+
+<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private key để connect vào level 17 lấy pasword thực hiện như sau
+
+`chmod 400 key.private`
+
+`chmod 600 key.private`
+
+`sudo ssh bandit17@bandit.labs.overthewire.org -p 2220 -i key.private`
+
+`cat /etc/bandit_pass/bandit17`
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+**password : VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e**
