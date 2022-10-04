@@ -42,7 +42,7 @@ password : bandit0
 
 Đầu tiên ta `cd inhere` sau đó `ls -la` để xem có file ẩn không và thấy .hidden sau đó ta chỉ việc `cat .hidden` thôi
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe**
 
@@ -92,7 +92,7 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 \=> `cat data.txt | grep millionth`&#x20;
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
 
 **password : TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
 
@@ -118,7 +118,7 @@ Khi đọc file data.txt thì ta sẽ thấy đây là 1 file không thể đọ
 
 \=> `strings data.txt | grep ==`&#x20;
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
 
@@ -169,4 +169,52 @@ Ta sẽ có quy tác như sau :&#x20;
 **password : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw**
 
 ## level 13
+
+The password for the next level is stored in **/etc/bandit\_pass/bandit14 and can only be read by user bandit14**. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. **Note:** **localhost** is a hostname that refers to the machine you are working on
+
+Để connect vào bandit14 khi đã có private key ta thực hiện câu lệnh sau
+
+`ssh bandit14@localhost -i sshkey.private -p 2220`
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+password bandit14 đề cho nằm trong /etc/bandit\_pass/bandit14
+
+**password : fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq**
+
+## Level 14
+
+The password for the next level can be retrieved by submitting the password of the current level to **port 30000 on localhost**.
+
+nc 127.0.0.1 30000
+
+password là pass level14
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+**password : jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt**
+
+## Level 15
+
+The password for the next level can be retrieved by submitting the password of the current level to **port 30001 on localhost** using SSL encryption.
+
+**Helpful note: Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign\_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…**
+
+Bài này sử dụng openssl để connect vào localhost port 30001
+
+Ta thực hiện như sau ([source here](https://www.mkssoftware.com/docs/man1/openssl\_s\_client.1.asp))
+
+openssl s\_client -connect localhost:30001
+
+password là pass level trước
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+**password : JQttfApK4SeyHwDlI9SXGR50qclOAil1**
+
+## Level 16
+
+The credentials for the next level can be retrieved by submitting the password of the current level to **a port on localhost in the range 31000 to 32000**. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
 
