@@ -8,7 +8,7 @@ username : bandit0
 
 password : bandit0
 
-<figure><img src=".gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
@@ -80,7 +80,7 @@ Nên ta sẽ thêm vào câu lệnh 2>/dev/null ([source](https://www.cyberciti.
 
 \=> find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 
-<figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S**
 
@@ -92,7 +92,7 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 \=> `cat data.txt | grep millionth`&#x20;
 
-<figure><img src=".gitbook/assets/image (4) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 **password : TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
 
@@ -100,13 +100,13 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 Bài này đề nói password chỉ xuất hiện 1 lần nên khi ta dùng lệnh `sort data.txt` sẽ thấy rất nhiều password lặp laị như sau
 
-<figure><img src=".gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 Nên lúc này để tìm được password thì chỉ cần tìm 1 chuỗi xuất hiện 1 lần bằng câu lệnh&#x20;
 
 \=> `sort data.txt  |  uniq -u` ( -u chỉ hiển thị các dòng không lặp lại [source](https://vi.wikipedia.org/wiki/Uniq\_\(Unix\)) )
 
-<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : EN632PlfYiZbn3PhVK3XOGSlNInNE00t**
 
@@ -118,7 +118,7 @@ Khi đọc file data.txt thì ta sẽ thấy đây là 1 file không thể đọ
 
 \=> `strings data.txt | grep ==`&#x20;
 
-<figure><img src=".gitbook/assets/image (8) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 **password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
 
@@ -142,7 +142,7 @@ Bài này cũng chỉ đơn giản là decode ROT13 để có password&#x20;
 
 \=> `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
 
-<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (11) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv**
 
@@ -152,7 +152,7 @@ The password for the next level is stored in the file **data.txt**, which is a h
 
 Đầu tiên ta sẽ tạo 1 thư mục để xử lý trên nó sau đó hexdump nó thành 1 file như hình
 
-<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 Việc bây giờ là format lại file cho đúng định dạng có thể đọc được
 
@@ -176,9 +176,9 @@ The password for the next level is stored in **/etc/bandit\_pass/bandit14 and ca
 
 `ssh bandit14@localhost -i sshkey.private -p 2220`
 
-<figure><img src=".gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 password bandit14 đề cho nằm trong /etc/bandit\_pass/bandit14
 
@@ -192,7 +192,7 @@ nc 127.0.0.1 30000
 
 password là pass level14
 
-<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt**
 
@@ -220,13 +220,13 @@ The credentials for the next level can be retrieved by submitting the password o
 
 Đầu tiên ta sử dụng lệnh nmap để scan các port từ 31000-32000 và thấy port 31709 có thể khai thác được : `nmap -sV -p 31000-32000 localhost`
 
-<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 sử dụng `openssl s_client -connect localhost:31790` với password của level trước
 
-<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private key để connect vào level 17 lấy pasword thực hiện như sau
 
@@ -238,9 +238,9 @@ Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private 
 
 `cat /etc/bandit_pass/bandit17`
 
-<figure><img src=".gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 **password : VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e**
 
@@ -252,7 +252,7 @@ Bài này ta sẽ dùng diff để so sánh 2 file passwords.new với passwords
 
 \=> `diff passwords.old passwords.new`
 
-<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 **password : hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg**
 
@@ -262,9 +262,9 @@ The password for the next level is stored in a file **readme** in the homedirect
 
 Đầu tiên ta sẽ sử dụng man ssh để xem các flag có thể sử dụng trong ssh và ta thấy -t sẽ thay đổi pseudo-terminal nên ta sẽ dùng /bin/sh để connect thay vì bash và bị kick
 
-<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 **password : awhqfNnAbc1naukrpqDYcF95h7HoMTrC**
 
@@ -274,18 +274,32 @@ To gain access to the next level, you should use the setuid binary in the homedi
 
 Khi ta thử chạy file bandit20-do thì sẽ hiển thị ra như sau vì id đang là bandit19 đề yêu cầu là sywr dụng bandit20&#x20;
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ vào thử directory /etc/bandit\_pass và thấy rất nhiều bandit tiếp theo dùng `ls -la | grep bandit20` để xem id của bandit20 xem có đúng không
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 Như vậy để đọc được password ta sẽ thực hiện câu lệnh ./bandit20-do id
 
 \=> `./bandit20-do cat /etc/bandit_pass/bandit20`
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 **password : VxCazJaVykI6W36BkBU0mJTCM8rR95XT**
 
 ## Level 2​0
+
+There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
+
+Bài này ./suconnect sẽ gửi password của nextlevel vào port localhost nên ta sẽ host 1 cái với port bất kỳ để bắt password
+
+`=> nc -lnvp 6969 ( gửi password cũ ở đây)`
+
+`=> ./suconnect 6969`
+
+<figure><img src=".gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+**password : NvEJF7oVjkddltPSrdKEFOllh9V1IBcq**
