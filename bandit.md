@@ -10,7 +10,7 @@ password : bandit0
 
 <figure><img src=".gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 `cat readme` để lấy password
 
@@ -110,7 +110,7 @@ Nên lúc này để tìm được password thì chỉ cần tìm 1 chuỗi xu�
 
 **password : EN632PlfYiZbn3PhVK3XOGSlNInNE00t**
 
-## level 9
+## Level 9
 
 The password for the next level is stored in the file **data.txt** in one of the few human-readable strings, preceded by several ‘=’ characters.
 
@@ -122,7 +122,7 @@ Khi đọc file data.txt thì ta sẽ thấy đây là 1 file không thể đọ
 
 **password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
 
-## level 10
+## Level 10
 
 The password for the next level is stored in the file **data.txt**, which contains base64 encoded data
 
@@ -134,7 +134,7 @@ Bài này thì chỉ cần decode base64 là có password&#x20;
 
 **password : 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM**
 
-## level 11
+## Level 11
 
 The password for the next level is stored in the file **data.txt**, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
 
@@ -146,7 +146,7 @@ Bài này cũng chỉ đơn giản là decode ROT13 để có password&#x20;
 
 **password : JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv**
 
-## level 12
+## Level 12
 
 The password for the next level is stored in the file **data.txt**, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work using mkdir. For example: mkdir /tmp/myname123. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
@@ -168,7 +168,7 @@ Ta sẽ có quy tác như sau :&#x20;
 
 **password : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw**
 
-## level 13
+## Level 13
 
 The password for the next level is stored in **/etc/bandit\_pass/bandit14 and can only be read by user bandit14**. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. **Note:** **localhost** is a hostname that refers to the machine you are working on
 
@@ -176,7 +176,7 @@ The password for the next level is stored in **/etc/bandit\_pass/bandit14 and ca
 
 `ssh bandit14@localhost -i sshkey.private -p 2220`
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -210,7 +210,7 @@ Ta thực hiện như sau ([source here](https://www.mkssoftware.com/docs/man1/o
 
 password là pass level trước
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : JQttfApK4SeyHwDlI9SXGR50qclOAil1**
 
@@ -238,9 +238,9 @@ Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private 
 
 `cat /etc/bandit_pass/bandit17`
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e**
 
@@ -303,3 +303,55 @@ Bài này ./suconnect sẽ gửi password của nextlevel vào port localhost n�
 <figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 **password : NvEJF7oVjkddltPSrdKEFOllh9V1IBcq**
+
+****
+
+## **Level 21**
+
+A program is running automatically at regular intervals from **cron**, the time-based job scheduler. Look in **/etc/cron.d/** for the configuration and see what command is being executed.
+
+Ta sẽ đi vào thư mục /etc/con.d xem có gì trong đó
+
+<figure><img src=".gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+
+Thử cat file cronjob\_bandit22 xem sao
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+
+Vậy có nghĩa là conjob\_bandit22 sẽ được mở lên khi khởi động hệ điều hành ( reboot)&#x20;
+
+ta sẽ xem thử trong file /usr/bin/cronjob\_bandit22.sh có gì&#x20;
+
+<figure><img src=".gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+
+Ta sẽ thấy nó cấp quyền cho file /tmp/t7... và truyền password của bandit22 vào file đó nên chắc chắn sẽ có mật khẩu ở trong file /tmp/t7..
+
+<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+**password : WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff**
+
+## Level 22
+
+A program is running automatically at regular intervals from **cron**, the time-based job scheduler. Look in **/etc/cron.d/** for the configuration and see what command is being executed.
+
+**NOTE:** Looking at shell scripts written by other people is a very useful skill. The script for this level is intentionally made easy to read. If you are having problems understanding what it does, try executing it to see the debug information it prints.
+
+Tương tự level 21 ta sẽ xem thử trong file sh có gì
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Giải thích làm sao để lấy dược password ở đây theo mình nghĩ thì ta sẽ lấy được đường dẫn đến file chứa password sẽ là bằng biến mytarget mà biến mytarget sẽ được set là (echo I am user $myname | md5sum | cut -d  ' ' -f 1) mà myname sẽ là bandit23 nên ta sẽ test như sau
+
+<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+Vậy mytarget sẽ là : 8ca319486bfbbc3663ea0fbe81326349
+
+cat /tmp/8ca319486bfbbc3663ea0fbe81326349 để đọc password thôi
+
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+password : QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+
+## Level 23

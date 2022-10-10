@@ -460,7 +460,7 @@ Chúng ta có một số kí tự để thay thế khoảng trắng như: `%20`-
 ?>hp
 ```
 
-![](<.gitbook/assets/image (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (2).png>)
 
 Bài này sẽ bypass like dùng `a%` brute force password
 
