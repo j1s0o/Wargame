@@ -10,7 +10,7 @@ password : bandit0
 
 <figure><img src=".gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 `cat readme` để lấy password
 
@@ -100,7 +100,7 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 Bài này đề nói password chỉ xuất hiện 1 lần nên khi ta dùng lệnh `sort data.txt` sẽ thấy rất nhiều password lặp laị như sau
 
-<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nên lúc này để tìm được password thì chỉ cần tìm 1 chuỗi xuất hiện 1 lần bằng câu lệnh&#x20;
 
@@ -130,7 +130,7 @@ Bài này thì chỉ cần decode base64 là có password&#x20;
 
 \=> `cat data.txt | base64 --decode`
 
-<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM**
 
@@ -164,7 +164,7 @@ Ta sẽ có quy tác như sau :&#x20;
 
 \+ Nêu là POSIX thì dùng câu lệnh `tar xvf`&#x20;
 
-<figure><img src=".gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw**
 
@@ -176,7 +176,7 @@ The password for the next level is stored in **/etc/bandit\_pass/bandit14 and ca
 
 `ssh bandit14@localhost -i sshkey.private -p 2220`
 
-<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -240,7 +240,7 @@ Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private 
 
 <figure><img src=".gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 **password : VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e**
 
@@ -252,7 +252,7 @@ Bài này ta sẽ dùng diff để so sánh 2 file passwords.new với passwords
 
 \=> `diff passwords.old passwords.new`
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg**
 
@@ -262,7 +262,7 @@ The password for the next level is stored in a file **readme** in the homedirect
 
 Đầu tiên ta sẽ sử dụng man ssh để xem các flag có thể sử dụng trong ssh và ta thấy -t sẽ thay đổi pseudo-terminal nên ta sẽ dùng /bin/sh để connect thay vì bash và bị kick
 
-<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
@@ -298,7 +298,7 @@ Bài này ./suconnect sẽ gửi password của nextlevel vào port localhost n�
 
 `=> ./suconnect 6969`
 
-<figure><img src=".gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
@@ -312,23 +312,23 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 Ta sẽ đi vào thư mục /etc/con.d xem có gì trong đó
 
-<figure><img src=".gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 Thử cat file cronjob\_bandit22 xem sao
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Vậy có nghĩa là conjob\_bandit22 sẽ được mở lên khi khởi động hệ điều hành ( reboot)&#x20;
 
 ta sẽ xem thử trong file /usr/bin/cronjob\_bandit22.sh có gì&#x20;
 
-<figure><img src=".gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ thấy nó cấp quyền cho file /tmp/t7... và truyền password của bandit22 vào file đó nên chắc chắn sẽ có mật khẩu ở trong file /tmp/t7..
 
-<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 **password : WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff**
 
@@ -340,18 +340,28 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 Tương tự level 21 ta sẽ xem thử trong file sh có gì
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Giải thích làm sao để lấy dược password ở đây theo mình nghĩ thì ta sẽ lấy được đường dẫn đến file chứa password sẽ là bằng biến mytarget mà biến mytarget sẽ được set là (echo I am user $myname | md5sum | cut -d  ' ' -f 1) mà myname sẽ là bandit23 nên ta sẽ test như sau
 
-<figure><img src=".gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Vậy mytarget sẽ là : 8ca319486bfbbc3663ea0fbe81326349
 
 cat /tmp/8ca319486bfbbc3663ea0fbe81326349 để đọc password thôi
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
-password : QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+**password : QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G**
 
 ## Level 23
+
+A program is running automatically at regular intervals from **cron**, the time-based job scheduler. Look in **/etc/cron.d/** for the configuration and see what command is being executed.
+
+**NOTE:** This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
+
+**NOTE 2:** Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
+
+Tương tự 2 level trước ta đọc file sh&#x20;
+
+<figure><img src=".gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
