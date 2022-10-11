@@ -10,7 +10,7 @@ password : bandit0
 
 <figure><img src=".gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 `cat readme` để lấy password
 
@@ -92,7 +92,7 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 \=> `cat data.txt | grep millionth`&#x20;
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
 
@@ -176,7 +176,7 @@ The password for the next level is stored in **/etc/bandit\_pass/bandit14 and ca
 
 `ssh bandit14@localhost -i sshkey.private -p 2220`
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -210,7 +210,7 @@ Ta thực hiện như sau ([source here](https://www.mkssoftware.com/docs/man1/o
 
 password là pass level trước
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : JQttfApK4SeyHwDlI9SXGR50qclOAil1**
 
@@ -226,7 +226,7 @@ The credentials for the next level can be retrieved by submitting the password o
 
 sử dụng `openssl s_client -connect localhost:31790` với password của level trước
 
-<figure><img src=".gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private key để connect vào level 17 lấy pasword thực hiện như sau
 
@@ -262,7 +262,7 @@ The password for the next level is stored in a file **readme** in the homedirect
 
 Đầu tiên ta sẽ sử dụng man ssh để xem các flag có thể sử dụng trong ssh và ta thấy -t sẽ thay đổi pseudo-terminal nên ta sẽ dùng /bin/sh để connect thay vì bash và bị kick
 
-<figure><img src=".gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
@@ -278,7 +278,7 @@ Khi ta thử chạy file bandit20-do thì sẽ hiển thị ra như sau vì id �
 
 Ta sẽ vào thử directory /etc/bandit\_pass và thấy rất nhiều bandit tiếp theo dùng `ls -la | grep bandit20` để xem id của bandit20 xem có đúng không
 
-<figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (13) (2).png" alt=""><figcaption></figcaption></figure>
 
 Như vậy để đọc được password ta sẽ thực hiện câu lệnh ./bandit20-do id
 
@@ -300,7 +300,7 @@ Bài này ./suconnect sẽ gửi password của nextlevel vào port localhost n�
 
 <figure><img src=".gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : NvEJF7oVjkddltPSrdKEFOllh9V1IBcq**
 
@@ -318,13 +318,13 @@ Thử cat file cronjob\_bandit22 xem sao
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
 Vậy có nghĩa là conjob\_bandit22 sẽ được mở lên khi khởi động hệ điều hành ( reboot)&#x20;
 
 ta sẽ xem thử trong file /usr/bin/cronjob\_bandit22.sh có gì&#x20;
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ thấy nó cấp quyền cho file /tmp/t7... và truyền password của bandit22 vào file đó nên chắc chắn sẽ có mật khẩu ở trong file /tmp/t7..
 
@@ -365,3 +365,39 @@ A program is running automatically at regular intervals from **cron**, the time-
 Tương tự 2 level trước ta đọc file sh&#x20;
 
 <figure><img src=".gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+
+Đầu tiên nó sẽ cd vào /var/spool/$myname/foo ($myname sẽ là bandit24), vòng lặp for lúc này sẽ lấy tất cả các file trong địa chỉ đó để thực hiện vòng lặp. Sau đó sẽ duyệt tất cả các file thuộc quyền sở hữu của bandit23 ( timeout 90s ) sau đó xóa luôn file
+
+Lúc này để giải được level này ta cần tạo 1 file bash với nội dung truyền password vào 1 file nào đó ở bên ngoài để lấy được password&#x20;
+
+`#!/bin/bash`&#x20;
+
+`cat /etc/bandit_pass/bandit24 > /tmp/pass_j1s0o/pw`
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption><p>cấp quyền cho j1s0o</p></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+
+**password : VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar**
+
+## Level 24
+
+A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+
+Bài này chỉ cần brute force 4 số có 4 chữ số vì ta thấy khi nhập sai thì nc ko tự ngắt kết nối nên câu này cũng dễ bruteforce
+
+ta sẽ viết bash script như sau
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Chạy file sh ta sẽ được file solve.txt tiếp theo ta lấy password thôi&#x20;
+
+nc localhost 30002 < solve.txt
+
+<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+**password : p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d**

