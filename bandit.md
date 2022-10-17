@@ -32,7 +32,7 @@ password : bandit0
 
 \=> `cat spaces\ in\ this\ filename`
 
-<figure><img src=".gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG**
 
@@ -62,7 +62,7 @@ Ta sẽ thất -file07 là 1 file ASCII text nên ta sẽ đọc file đó
 
 Đề gợi ý cho ta là password nằm ở file có size 1033c nên ta sẽ dùng lệnh `find -type f -size 1033c` với **-type f** để tìm tất cả file và **-size 1033c** để tìm tất cả file có size 1033c
 
-<figure><img src=".gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU**
 
@@ -92,7 +92,7 @@ The password for the next level is stored in the file **data.txt** next to the w
 
 \=> `cat data.txt | grep millionth`&#x20;
 
-<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : TESKZC0XvTetK0S9xNwm25STk5iWrBvP**
 
@@ -118,7 +118,7 @@ Khi đọc file data.txt thì ta sẽ thấy đây là 1 file không thể đọ
 
 \=> `strings data.txt | grep ==`&#x20;
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s**
 
@@ -178,7 +178,7 @@ The password for the next level is stored in **/etc/bandit\_pass/bandit14 and ca
 
 <figure><img src=".gitbook/assets/image (2) (3).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 password bandit14 đề cho nằm trong /etc/bandit\_pass/bandit14
 
@@ -222,7 +222,7 @@ The credentials for the next level can be retrieved by submitting the password o
 
 <figure><img src=".gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 sử dụng `openssl s_client -connect localhost:31790` với password của level trước
 
@@ -238,9 +238,9 @@ Ta sẽ có đuợc private key tiếp đó chỉ cần dùng ssh với private 
 
 `cat /etc/bandit_pass/bandit17`
 
-<figure><img src=".gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (14) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e**
 
@@ -264,7 +264,7 @@ The password for the next level is stored in a file **readme** in the homedirect
 
 <figure><img src=".gitbook/assets/image (9) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (16) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : awhqfNnAbc1naukrpqDYcF95h7HoMTrC**
 
@@ -274,7 +274,7 @@ To gain access to the next level, you should use the setuid binary in the homedi
 
 Khi ta thử chạy file bandit20-do thì sẽ hiển thị ra như sau vì id đang là bandit19 đề yêu cầu là sywr dụng bandit20&#x20;
 
-<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ vào thử directory /etc/bandit\_pass và thấy rất nhiều bandit tiếp theo dùng `ls -la | grep bandit20` để xem id của bandit20 xem có đúng không
 
@@ -284,7 +284,7 @@ Như vậy để đọc được password ta sẽ thực hiện câu lệnh ./ba
 
 \=> `./bandit20-do cat /etc/bandit_pass/bandit20`
 
-<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (18) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : VxCazJaVykI6W36BkBU0mJTCM8rR95XT**
 
@@ -316,7 +316,7 @@ Ta sẽ đi vào thư mục /etc/con.d xem có gì trong đó
 
 Thử cat file cronjob\_bandit22 xem sao
 
-<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -324,11 +324,11 @@ Vậy có nghĩa là conjob\_bandit22 sẽ được mở lên khi khởi động
 
 ta sẽ xem thử trong file /usr/bin/cronjob\_bandit22.sh có gì&#x20;
 
-<figure><img src=".gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 Ta sẽ thấy nó cấp quyền cho file /tmp/t7... và truyền password của bandit22 vào file đó nên chắc chắn sẽ có mật khẩu ở trong file /tmp/t7..
 
-<figure><img src=".gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff**
 
@@ -340,7 +340,7 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 Tương tự level 21 ta sẽ xem thử trong file sh có gì
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (3) (3).png" alt=""><figcaption></figcaption></figure>
 
 Giải thích làm sao để lấy dược password ở đây theo mình nghĩ thì ta sẽ lấy được đường dẫn đến file chứa password sẽ là bằng biến mytarget mà biến mytarget sẽ được set là (echo I am user $myname | md5sum | cut -d  ' ' -f 1) mà myname sẽ là bandit23 nên ta sẽ test như sau
 
@@ -374,9 +374,9 @@ Lúc này để giải được level này ta cần tạo 1 file bash với nộ
 
 `cat /etc/bandit_pass/bandit24 > /tmp/pass_j1s0o/pw`
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption><p>cấp quyền cho j1s0o</p></figcaption></figure>
+<figure><img src=".gitbook/assets/image (12) (2).png" alt=""><figcaption><p>cấp quyền cho j1s0o</p></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -390,15 +390,15 @@ Bài này chỉ cần brute force 4 số có 4 chữ số vì ta thấy khi nh�
 
 ta sẽ viết bash script như sau
 
-<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (4).png" alt=""><figcaption></figcaption></figure>
 
 Chạy file sh ta sẽ được file solve.txt tiếp theo ta lấy password thôi&#x20;
 
 nc localhost 30002 < solve.txt
 
-<figure><img src=".gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (13) (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 **password : p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d**
 
@@ -408,35 +408,35 @@ nc localhost 30002 < solve.txt
 
 Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not **/bin/bash**, but something else. Find out what it is, how it works and how to break out of it.
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Ta thử dùng key này để vào bandit26 nhưng bị kick ra
 
-<figure><img src=".gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Xem thử bandit26 dùng shell gì vì đề bảo shell bandit26 không phải /bin/bash
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Vậy shell ở đây là /bin/showtext nên ta thử cat xem có gì trong đó
 
-<figure><img src=".gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
 
 Theo mình thấy nó sẽ thực hiện lệnh more \~/text.txt rồi exit nên ta xem lệnh more dùng để làm gì
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 
 Lênh more sẽ đọc text nhưng khi này text quá dài nên nó sẽ kick mình ra nên lúc này ta sẽ kéo size của terminal nhỏ lại để bypass được
 
 &#x20;
 
-<figure><img src=".gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
 Đã vào được bên trong more tiếp theo  ta sẽ  :
 
 Sử dụng h vào được help
 
-<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 Tiếp theo dùng v để vào vim
 
@@ -444,9 +444,9 @@ Tiếp theo dùng v để vào vim
 
 Sau đó trong vim sẽ có terminal để ta cat được password
 
-<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 **password : c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1**
 
@@ -458,11 +458,122 @@ Good job getting a shell! Now hurry and grab the password for bandit27!
 
 Vào bandit26 giống với trên bandit25 thay vì dùng key thì dùng password lặp lại các bước bên trên sau đó ta sẽ set shell của bandit26 thành /bin/bash
 
-<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 Lúc này shell bandit26 sẽ thành /bin/bash ta sẽ xem thử pass level 27 ở đâu
 
+<figure><img src=".gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+
+Nice bây giờ ta sẽ đọc password giống với level19
+
+<figure><img src=".gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+
+**password : YnQpBuifNMas1hcUFk70ZmqkhUU2EuaS**
+
+
+
+## Level 27
+
+There is a git repository at `ssh://bandit27-git@localhost/home/bandit27-git/repo`. The password for the user `bandit27-git` is the same as for the user `bandit27`.
+
+Clone the repository and find the password for the next level.
+
+Bài này ý tưởng là sẽ sử dụng git clone để đọc password trong 1 repo trên github
+
+Đầu tiên ta sẽ vào bên trong /tmp/j1s0\_pass để có quyền tải file
+
+<figure><img src=".gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+Sau đó ta sẽ thực hiện git clone ở đây nhớ thêm port 2220 mặc định của các challage&#x20;
+
+<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Đã git clone thành công và giờ xem password nằm đâu thôi
+
+<figure><img src=".gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+**password : AVanL161y9rsbcJIsFHuw35rjaOM19nR**
+
+## Level 28
+
+There is a git repository at `ssh://bandit28-git@localhost/home/bandit28-git/repo`. The password for the user `bandit28-git` is the same as for the user `bandit28`.
+
+Clone the repository and find the password for the next level
+
+Cùng thực hiện giống với level trước xem có gì nào
+
+<figure><img src=".gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+
+Password đã bị che rồi nên check xem git log có gì&#x20;
+
+<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Ta thấy có 1 commit để fix lộ password nên ta sẽ dùng git diff để check xem đã sửa đổi cái gì ở commit đó
+
+<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Và giờ ta đã thấy được password trước khi bị sửa
+
+**password : tQKvmcwNYcFS6vmPHIUSI3ShmsrQZK8S**
+
+
+
+## Level 29
+
+There is a git repository at `ssh://bandit29-git@localhost/home/bandit29-git/repo`. The password for the user `bandit29-git` is the same as for the user `bandit29`.
+
+Clone the repository and find the password for the next level.
+
+Nhìn giống bị dejavu quá nên ta sẽ làm theo các bước ở level 28
+
+<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Không có gì liên quan đến password ở đây cả nên ta check xem ở các branch khác có gì không&#x20;
+
+<figure><img src=".gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+1 đống branch luôn . Sử dụng lệnh git checkout và git log  để xem trong mấy branch đó có cái nào có pass không&#x20;
+
+Sau một hồi git checkout git log và git diff ta thấy trong remotes/origin/dev sẽ có password
+
+<figure><img src=".gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+
+**password : xbhV3HpNGlTIdnjUrdAlPzc2L6y9EOnS**
+
+## Level 30
+
+There is a git repository at `ssh://bandit30-git@localhost/home/bandit30-git/repo`. The password for the user `bandit30-git` is the same as for the user `bandit30`.
+
+Clone the repository and find the password for the next level.
+
+Ơ kìa lại nữa à . Tiếp tục làm như level 29 nào
+
+<figure><img src=".gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+
+password : just an epmty file... muahaha
+
+À nhầm để làm tiếp
+
+&#x20;
+
+<figure><img src=".gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+
+Chả có gì ở đây hết . Nên ta sẽ spam các lệnh của git xem sao
+
+Ở đây ta sẽ thấy có 1 lệnh là tag&#x20;
+
+<figure><img src=".gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+Có 1 file tên secret có khả năng là password&#x20;
+
+![](<.gitbook/assets/image (32).png>)
