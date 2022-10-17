@@ -312,11 +312,11 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 Ta sẽ đi vào thư mục /etc/con.d xem có gì trong đó
 
-<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
 
 Thử cat file cronjob\_bandit22 xem sao
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (9) (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -328,7 +328,7 @@ ta sẽ xem thử trong file /usr/bin/cronjob\_bandit22.sh có gì&#x20;
 
 Ta sẽ thấy nó cấp quyền cho file /tmp/t7... và truyền password của bandit22 vào file đó nên chắc chắn sẽ có mật khẩu ở trong file /tmp/t7..
 
-<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (7) (3).png" alt=""><figcaption></figcaption></figure>
 
 **password : WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff**
 
@@ -344,7 +344,7 @@ Tương tự level 21 ta sẽ xem thử trong file sh có gì
 
 Giải thích làm sao để lấy dược password ở đây theo mình nghĩ thì ta sẽ lấy được đường dẫn đến file chứa password sẽ là bằng biến mytarget mà biến mytarget sẽ được set là (echo I am user $myname | md5sum | cut -d  ' ' -f 1) mà myname sẽ là bandit23 nên ta sẽ test như sau
 
-<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vậy mytarget sẽ là : 8ca319486bfbbc3663ea0fbe81326349
 
@@ -378,7 +378,7 @@ Lúc này để giải được level này ta cần tạo 1 file bash với nộ
 
 <figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption><p>cấp quyền cho j1s0o</p></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
 **password : VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar**
 
@@ -390,14 +390,79 @@ Bài này chỉ cần brute force 4 số có 4 chữ số vì ta thấy khi nh�
 
 ta sẽ viết bash script như sau
 
-<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Chạy file sh ta sẽ được file solve.txt tiếp theo ta lấy password thôi&#x20;
 
 nc localhost 30002 < solve.txt
 
+<figure><img src=".gitbook/assets/image (9) (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (13) (3).png" alt=""><figcaption></figcaption></figure>
+
+**password : p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d**
+
+****
+
+## **Level 25**
+
+Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not **/bin/bash**, but something else. Find out what it is, how it works and how to break out of it.
+
+<figure><img src=".gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Ta thử dùng key này để vào bandit26 nhưng bị kick ra
+
+<figure><img src=".gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+
+Xem thử bandit26 dùng shell gì vì đề bảo shell bandit26 không phải /bin/bash
+
+<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Vậy shell ở đây là /bin/showtext nên ta thử cat xem có gì trong đó
+
+<figure><img src=".gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+
+Theo mình thấy nó sẽ thực hiện lệnh more \~/text.txt rồi exit nên ta xem lệnh more dùng để làm gì
+
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Lênh more sẽ đọc text nhưng khi này text quá dài nên nó sẽ kick mình ra nên lúc này ta sẽ kéo size của terminal nhỏ lại để bypass được
+
+&#x20;
+
+<figure><img src=".gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+Đã vào được bên trong more tiếp theo  ta sẽ  :
+
+Sử dụng h vào được help
+
+<figure><img src=".gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+Tiếp theo dùng v để vào vim
+
+<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+Sau đó trong vim sẽ có terminal để ta cat được password
+
+<figure><img src=".gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+**password : c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1**
+
+
+
+## Level 26
+
+Good job getting a shell! Now hurry and grab the password for bandit27!
+
+Vào bandit26 giống với trên bandit25 thay vì dùng key thì dùng password lặp lại các bước bên trên sau đó ta sẽ set shell của bandit26 thành /bin/bash
+
 <figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src=".gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-**password : p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d**
+Lúc này shell bandit26 sẽ thành /bin/bash ta sẽ xem thử pass level 27 ở đâu
+
