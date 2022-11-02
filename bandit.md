@@ -312,7 +312,7 @@ A program is running automatically at regular intervals from **cron**, the time-
 
 Ta sẽ đi vào thư mục /etc/con.d xem có gì trong đó
 
-<figure><img src=".gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (15) (2).png" alt=""><figcaption></figcaption></figure>
 
 Thử cat file cronjob\_bandit22 xem sao
 
@@ -446,7 +446,7 @@ Sau đó trong vim sẽ có terminal để ta cat được password
 
 <figure><img src=".gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (8) (3).png" alt=""><figcaption></figcaption></figure>
 
 **password : c7GvcKlw9mC7aUQaPx7nwFstuAIBw1o1**
 
@@ -462,7 +462,7 @@ Vào bandit26 giống với trên bandit25 thay vì dùng key thì dùng passwor
 
 <figure><img src=".gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (4) (4).png" alt=""><figcaption></figcaption></figure>
 
 Lúc này shell bandit26 sẽ thành /bin/bash ta sẽ xem thử pass level 27 ở đâu
 
@@ -556,7 +556,7 @@ Clone the repository and find the password for the next level.
 
 Ơ kìa lại nữa à . Tiếp tục làm như level 29 nào
 
-<figure><img src=".gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (5) (3).png" alt=""><figcaption></figcaption></figure>
 
 password : just an epmty file... muahaha
 
@@ -598,7 +598,7 @@ Nó bảo ta phải push lên master 1 cái file tên key.txt với content là 
 
 Rồi luôn bị ban luôn nó hint cho ta sử dụng -f để force nó add vào&#x20;
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (3).png" alt=""><figcaption></figcaption></figure>
 
 Đã add thành công giờ chúng ta push nó lên thôi
 
@@ -624,7 +624,7 @@ Nó sẽ có 1 cái shell viết hoa các chữ chúng ta nhập vào . Ta sẽ 
 
 Đã bypass thành công&#x20;
 
-<figure><img src=".gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (12) (3).png" alt=""><figcaption></figcaption></figure>
 
 Ta thử cat password ở /etc/bandit\_pass/bandit33 xem có được không
 
