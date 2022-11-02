@@ -300,7 +300,7 @@ Bài này ./suconnect sẽ gửi password của nextlevel vào port localhost n�
 
 <figure><img src=".gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src=".gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (17) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **password : NvEJF7oVjkddltPSrdKEFOllh9V1IBcq**
 
@@ -430,7 +430,7 @@ Lênh more sẽ đọc text nhưng khi này text quá dài nên nó sẽ kick m�
 
 &#x20;
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Đã vào được bên trong more tiếp theo  ta sẽ  :
 
@@ -496,7 +496,7 @@ Sau đó ta sẽ thực hiện git clone ở đây nhớ thêm port 2220 mặc �
 
 Đã git clone thành công và giờ xem password nằm đâu thôi
 
-<figure><img src=".gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (9) (4).png" alt=""><figcaption></figcaption></figure>
 
 **password : AVanL161y9rsbcJIsFHuw35rjaOM19nR**
 
@@ -598,7 +598,7 @@ Nó bảo ta phải push lên master 1 cái file tên key.txt với content là 
 
 Rồi luôn bị ban luôn nó hint cho ta sử dụng -f để force nó add vào&#x20;
 
-<figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Đã add thành công giờ chúng ta push nó lên thôi
 
