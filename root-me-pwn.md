@@ -114,7 +114,7 @@ Dùng cat để giữ shell
 
 <figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-## Stack buffer overflow basic 2
+## ELF x86 Stack buffer overflow basic 2
 
 ```c
 #include <stdio.h>
