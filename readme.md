@@ -10,7 +10,10 @@ Some CTF-contests and Wargame writeup
 
 ### `Table of content:`
 
-Wargame                                                                                              ||[Portswigger](https://diamond-halibut-dc7.notion.site/Portswigger-726dbab9b90b4fc98df2d2177c232e56)                                                        ||[LordofSql](https://github.com/j1s0o/Wargame/blob/main/lordofsql.md)                               
+Wargame                                                                                              [Portswigger](https://diamond-halibut-dc7.notion.site/Portswigger-726dbab9b90b4fc98df2d2177c232e56)  
+
+
+[LordofSql](https://github.com/j1s0o/Wargame/blob/main/lordofsql.md)                               
 
 ####
 
